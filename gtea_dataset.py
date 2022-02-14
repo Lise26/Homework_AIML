@@ -1,11 +1,9 @@
 from torchvision.datasets import VisionDataset
 from spatial_transforms import ToTensor
 from PIL import Image
-from math import ceil
 import numpy as np
 import random
 import os
-import sys
 import torch
 from random import randrange
 
@@ -41,7 +39,7 @@ def grey_scale_pil_loader(path):
 
 
 class GTEA61(VisionDataset):
-    # this class inherites from VisionDataset and represents the rgb frames of the dataset
+    # this class inherits from VisionDataset and represents the rgb frames of the dataset
     def __init__(self, root, split='train', seq_len=16, transform=None, target_transform=None,
                  label_map=None, mmaps=False, mmaps_transform=None, static_frames=False):
         super(GTEA61, self).__init__(root, transform=transform, target_transform=target_transform)
@@ -222,14 +220,13 @@ class GTEA61(VisionDataset):
                     return sequence, static_sequence, maps_sequence, label
 
             return sequence, static_sequence, label
-            
 
     def __len__(self):
         return len(self.videos)
 
 
 class GTEA61_flow(VisionDataset):
-    # this class inherites from VisionDataset and represents the rgb frames of the dataset
+    # this class inherits from VisionDataset and represents the rgb frames of the dataset
     def __init__(self, root, split='train', seq_len=5, transform=None, target_transform=None,
                  label_map=None, n_seq=-1):
         super(GTEA61_flow, self).__init__(root, transform=transform, target_transform=target_transform)

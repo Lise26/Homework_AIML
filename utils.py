@@ -1,7 +1,7 @@
 import pickle
 
 
-class Logger():
+class Logger:
     def __init__(self, **params):
         self.params = params
         self.data = []
